@@ -19,8 +19,8 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "MLS Use Without Centralization"
+abbrev: "DMLS"
 category: info
 
 docname: draft-todo-yourname-protocol-latest
@@ -29,8 +29,8 @@ number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: SEC
+workgroup: MLS
 keyword:
  - next generation
  - unicorn
@@ -57,8 +57,15 @@ informative:
 
 --- abstract
 
-TODO Abstract
-
+The Messaging Layer Security (MLS) protocol provides continuous key agreement, 
+and offers additional benefits in multi-device, a.k.a. group use cases. MLS 
+is reliant on a Delivery Service (DS) for message ordering. In highly 
+centralized uses, where the DS is a single server, configuration is 
+straightforward. However, MLS also lends itself to use cases that are 
+decentralized (e.g., federated networks) and even distributed (e.g., mesh 
+networks). This informational document lays out uses of MLS and its variants 
+and extensions across various topologies and provides guidance on selection 
+among alternatives.
 
 --- middle
 
