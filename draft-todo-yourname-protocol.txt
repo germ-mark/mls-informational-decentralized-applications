@@ -2,18 +2,27 @@
 
 
 
-WG Working Group                                              Y. N. Here
+MLS                                                           Y. N. Here
 Internet-Draft                                    Your Organization Here
 Intended status: Informational                           4 November 2025
 Expires: 8 May 2026
 
 
-                           TODO - Your title
+                     MLS Use Without Centralization
                   draft-todo-yourname-protocol-latest
 
 Abstract
 
-   TODO Abstract
+   The Messaging Layer Security (MLS) protocol provides continuous key
+   agreement, and offers additional benefits in multi-device, a.k.a.
+   group use cases.  MLS is reliant on a Delivery Service (DS) for
+   message ordering.  In highly centralized uses, where the DS is a
+   single server, configuration is straightforward.  However, MLS also
+   lends itself to use cases that are decentralized (e.g., federated
+   networks) and even distributed (e.g., mesh networks).  This
+   informational document lays out uses of MLS and its variants and
+   extensions across various topologies and provides guidance on
+   selection among alternatives.
 
 About This Document
 
