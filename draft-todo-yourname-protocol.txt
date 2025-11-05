@@ -83,7 +83,11 @@ Table of Contents
      3.2.  DeMLS (Konrad)
        3.2.1.  Overhead
        3.2.2.  DS
-     3.3.  DMLS (Mark)
+       3.2.3.  Resiliency
+     3.3.  DiMLS (Mark)
+       3.3.1.  Overhead
+       3.3.2.  DS
+       3.3.3.  Resiliency
    4.  Security Considerations
    5.  IANA Considerations
    Acknowledgments
@@ -152,22 +156,50 @@ Table of Contents
 
 3.1.3.  Resiliency
 
+   MLS is heavily dependent on commit ordering being processed in the
+   correct sequence.  Out-of-order commits can lead to forks in the
+   group state.
+
 3.2.  DeMLS (Konrad)
+
+   DeMLS is defined in....
 
 3.2.1.  Overhead
 
-   DeMLS maintains the logarithmic overhead of updates in MLS.
-
-   DS overhead and is likewise reliant on DS design decisions for DS
-   overhead.
+   DeMLS maintains the logarithmic overhead of updates in MLS.  DS
+   overhead must also be accounted for as in MLS for various topologies,
+   but imposes slightly less ordering strictness than in MLS, as the
+   mechanism enables out-of-order commit processing.  As a trade-off,
+   DeMLS requires more storage on the end device.  The additional
+   storage requirements are generally correlated to ordering strictness;
+   the less delay or out of order commits occur, the less state and
+   storage expansion is required.
 
 3.2.2.  DS
 
-   ### Resiliency
+3.2.3.  Resiliency
 
-3.3.  DMLS (Mark)
+3.3.  DiMLS (Mark)
 
-   ### Overhead ### DS ### Resiliency
+   DiMLS is defined in....
+
+3.3.1.  Overhead
+
+   DiMLS overhead has linear update overhead.  However, it is not
+   dependent on the DS for commit ordering, reducing the DS overhead
+   requirements.  For example, a consensus on commit ordering is not
+   required for the DS unlike in MLS.  Thus the trade-off in DiMLS is
+   among overhead incurred by the security protocol itself and its
+   architectural requirements in DS overhead.
+
+3.3.2.  DS
+
+3.3.3.  Resiliency
+
+   DeMLS is highly resilient to out-of-order commits and, in the case of
+   honest members, forking of the group state is not possible.  This is
+   because each member has full control of commit ordering as it relates
+   to the keying state protecting the messages that member sends.
 
 4.  Security Considerations
 
