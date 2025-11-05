@@ -97,7 +97,21 @@ Table of Contents
 
 1.  Introduction
 
-   TODO Introduction
+   While the Messaging Layer Security (MLS) protocol had initial uses in
+   the construct of simple secure messaging deployments, developments on
+   use cases have extended into decentralized and distributed
+   environments.  This includes decentralized uses such as federation,
+   under the MIMI working group [cite] and distributed uses such as
+   across mesh networks.  In such cases, identification of an adequate
+   delivery service (DS) to fit various topologies and ensure precise
+   commit ordering can be difficult, and the DS can incur significant
+   overhead in itself.  This has driven consideration of how to account
+   for potential forking of the group state [cite] for re-ordered commit
+   messages or avoid the risk of out-of-order commits altogether [cite].
+   This informational document provides an outline of uses of MLS and
+   its extensions across various network topology considerations, with
+   specific considerations to network overhead, storage, and security
+   from state forking.
 
 2.  Definitions
 
