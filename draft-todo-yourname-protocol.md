@@ -131,21 +131,46 @@ overhead has network topology spreads.
 
 ### Resiliency
 
+MLS is heavily dependent on commit ordering being processed in the correct 
+sequence. Out-of-order commits can lead to forks in the group state.
+
+
 ## DeMLS (Konrad)
+DeMLS is defined in....
 
 ### Overhead
 DeMLS maintains the logarithmic overhead of updates in MLS. 
-
-DS overhead and is likewise 
-reliant on DS design decisions for DS overhead. 
+DS overhead must also be accounted for as in MLS for various topologies, 
+but imposes slightly less ordering strictness than in MLS, as the mechanism 
+enables out-of-order commit processing. 
+As a trade-off, DeMLS requires more storage on the end device. The additional 
+storage requirements are generally correlated to ordering strictness; the less 
+delay or out of order commits occur, the less state and storage expansion is 
+required. 
 
 ### DS
+
 ### Resiliency
 
-## DMLS (Mark)
+
+## DiMLS (Mark)
+DiMLS is defined in....
+
 ### Overhead
+DiMLS overhead has linear update overhead. However, it is not dependent on the 
+DS for commit ordering, reducing the DS overhead requirements. For example, a 
+consensus on commit ordering is not required for the DS unlike in MLS. Thus 
+the trade-off in DiMLS is among overhead incurred by the security protocol 
+itself and its architectural requirements in DS overhead. 
+
 ### DS
+
 ### Resiliency
+DeMLS is highly resilient to out-of-order commits and, in the case of honest 
+members, forking of the group state is not possible. This is because each 
+member has full control of commit ordering as it relates to the keying state 
+protecting the messages that member sends. 
+
 
 
 
