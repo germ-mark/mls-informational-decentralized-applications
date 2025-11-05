@@ -8,7 +8,7 @@ Intended status: Informational                           5 November 2025
 Expires: 9 May 2026
 
 
-                     MLS Use Without Centralization
+               Distributed and Decentralized Uses of MLS
                   draft-todo-yourname-protocol-latest
 
 Abstract
@@ -22,7 +22,8 @@ Abstract
    networks) and even distributed (e.g., mesh networks).  This
    informational document lays out uses of MLS and its variants and
    extensions across various topologies and provides guidance on
-   selection among alternatives.
+   selection among alternatives under both functionality and security
+   considerations.
 
 About This Document
 
@@ -88,8 +89,9 @@ Table of Contents
        3.3.1.  Overhead
        3.3.2.  DS
        3.3.3.  Resiliency
-   4.  Security Considerations
-   5.  IANA Considerations
+   4.  Use Cases
+   5.  Security Considerations
+   6.  IANA Considerations
    Acknowledgments
    Author's Address
 
@@ -179,6 +181,8 @@ Table of Contents
 
 3.2.3.  Resiliency
 
+   DeMLS provides fork resilience and a cost to memory.
+
 3.3.  DiMLS (Mark)
 
    DiMLS is defined in....
@@ -194,6 +198,11 @@ Table of Contents
 
 3.3.2.  DS
 
+   In DiMLS there are fewer requirements on the DS for exact ordering.
+   Messages must get to the respective destinations but in-order
+   delivery is not expected for security purposes of maintaining a
+   consistent state.
+
 3.3.3.  Resiliency
 
    DeMLS is highly resilient to out-of-order commits and, in the case of
@@ -201,11 +210,26 @@ Table of Contents
    because each member has full control of commit ordering as it relates
    to the keying state protecting the messages that member sends.
 
-4.  Security Considerations
+4.  Use Cases
+
+   The basic MLS protocol functions well in environments where reliable
+   in-order delivery can be assured.  That includes both centralized
+   environment as well as those in decentralized and distributed uses
+   where the DS overhead for e.g., consensus is deemed supportable.
+
+   For cases of minor network topology spread, e.g., decentralized uses
+   such as federated servers, DeMLS can provide improvements to fork
+   resiliency at minor costs to storage.
+
+   For distributed environments where significant changes in network
+   topologies are expected, e.g., mesh networks, or where memory storage
+   is a consideration, DiMLS offers advantages.
+
+5.  Security Considerations
 
    TODO Security
 
-5.  IANA Considerations
+6.  IANA Considerations
 
    This document has no IANA actions.
 
