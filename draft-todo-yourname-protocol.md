@@ -45,9 +45,13 @@ venue:
 
 author:
  -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
+    fullname: Britta Hale Your Name Here
+    organization: Naval Postgraduate School
+    email: britta.hale@nps.edu
+
+    fullname: 
+    organization: 
+    email:
 
 normative:
 
