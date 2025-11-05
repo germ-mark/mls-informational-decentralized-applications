@@ -19,8 +19,8 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "MLS Use Without Centralization"
-abbrev: "DMLS"
+title: "Distributed and Decentralized Uses of MLS"
+abbrev: "DDMLS"
 category: info
 
 docname: draft-todo-yourname-protocol-latest
@@ -65,7 +65,7 @@ straightforward. However, MLS also lends itself to use cases that are
 decentralized (e.g., federated networks) and even distributed (e.g., mesh 
 networks). This informational document lays out uses of MLS and its variants 
 and extensions across various topologies and provides guidance on selection 
-among alternatives.
+among alternatives under both functionality and security considerations.
 
 --- middle
 
@@ -151,6 +151,7 @@ required.
 ### DS
 
 ### Resiliency
+DeMLS provides fork resilience and a cost to memory. 
 
 
 ## DiMLS (Mark)
@@ -163,7 +164,10 @@ consensus on commit ordering is not required for the DS unlike in MLS. Thus
 the trade-off in DiMLS is among overhead incurred by the security protocol 
 itself and its architectural requirements in DS overhead. 
 
-### DS
+### DS  
+In DiMLS there are fewer requirements on the DS for exact ordering. Messages 
+must get to the respective destinations but in-order delivery is not expected 
+for security purposes of maintaining a consistent state. 
 
 ### Resiliency
 DeMLS is highly resilient to out-of-order commits and, in the case of honest 
@@ -172,6 +176,19 @@ member has full control of commit ordering as it relates to the keying state
 protecting the messages that member sends. 
 
 
+# Use Cases
+The basic MLS protocol functions well in environments where reliable in-order 
+delivery can be assured. That includes both centralized environment as well as 
+those in decentralized and distributed uses where the DS overhead for e.g., 
+consensus is deemed supportable. 
+
+For cases of minor network topology spread, e.g., decentralized uses such as 
+federated servers, DeMLS can provide improvements to fork resiliency at minor 
+costs to storage. 
+
+For distributed environments where significant changes in network topologies are 
+expected, e.g., mesh networks, or where memory storage is a consideration, 
+DiMLS offers advantages. 
 
 
 # Security Considerations
