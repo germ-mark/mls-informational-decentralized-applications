@@ -45,7 +45,7 @@ venue:
 
 author:
  -
-    fullname: Britta Hale Your Name Here
+    fullname: Britta Hale 
     organization: Naval Postgraduate School
     email: britta.hale@nps.edu
 
