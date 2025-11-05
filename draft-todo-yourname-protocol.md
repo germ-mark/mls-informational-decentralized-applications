@@ -193,7 +193,10 @@ DiMLS offers advantages.
 
 # Security Considerations
 
-TODO Security
+This document covers security considerations for various applications of other 
+documents to and including MLS. This document is not an exhaustive security 
+reference for use of MLS in decentralized or distributed environments, but 
+focuses on the issue of state forking in such use cases.
 
 
 # IANA Considerations
