@@ -152,23 +152,40 @@ sequence. Out-of-order commits can lead to forks in the group state.
 
 
 ## DeMLS (Konrad)
-DeMLS is defined in....
+DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) changes MLS
+slightly to achieve fork resilience as introduced by Alwen et al.
+(https://eprint.iacr.org/2023/394).
+
+In MLS, retention of a group state after applying a commit is strongly
+discouraged, because it compromises the protocol's forward secrecy. However, if
+group states are deleted immediately after applying a commit, processing of
+out-of-order commits becomes impossible. DeMLS changes the MLS key schedule
+slightly to improve the protocol's forward secrecy even when retaining old group
+states. This makes it safer to operate in environments that require out-of-order
+processing of commits.
 
 ### Overhead
-DeMLS maintains the logarithmic overhead of updates in MLS. 
-DS overhead must also be accounted for as in MLS for various topologies, 
-but imposes slightly less ordering strictness than in MLS, as the mechanism 
-enables out-of-order commit processing. 
-As a trade-off, DeMLS requires more storage on the end device. The additional 
-storage requirements are generally correlated to ordering strictness; the less 
-delay or out of order commits occur, the less state and storage expansion is 
-required. 
+For DeMLS, performance considerations are largely the same as in regular MLS,
+including its characteristic logarithmic performance overhead.
+
+The main additional overhead of DeMLS is the storage overhead due to its changes
+to MLS key schedule. Here, whenever a commit is processed, additional key
+material on the order of 13kB needs to be stored by the client as long as it
+needs to be able to process other commits for the epoch of that group state.
 
 ### DS
+DeMLS benefits from a DS that can inform clients when a fork can occur. For
+example, in federated environments, individual servers can detect when they lose
+connectivity with other parts of the network and inform clients that they may
+need to process multiple commits for the current epoch. Similarly, the server
+can inform its clients when a given netsplit is over and old group states can be
+deleted.
 
 ### Resiliency
-DeMLS provides fork resilience and a cost to memory. 
-
+DeMLS makes it safer to maintain multiple forks of a group at the added cost of
+storage, as well as a slight complexity increase in MLS's key schedule. This
+makes the use of MLS viable in environments where forks may occur due to
+out-of-order commits.
 
 ## DiMLS (Mark)
 DiMLS is defined in....
