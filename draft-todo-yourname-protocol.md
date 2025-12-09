@@ -151,35 +151,43 @@ MLS is heavily dependent on commit ordering being processed in the correct
 sequence. Out-of-order commits can lead to forks in the group state.
 
 
-## DeMLS (Konrad)
-DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) changes MLS
-slightly to achieve fork resilience as introduced by Alwen et al.
-(https://eprint.iacr.org/2023/394).
-
+## DeMLS
 In MLS, retention of a group state after applying a commit is strongly
-discouraged, because it compromises the protocol's forward secrecy. However, if
-group states are deleted immediately after applying a commit, processing of
-out-of-order commits becomes impossible. DeMLS changes the MLS key schedule
-slightly to improve the protocol's forward secrecy even when retaining old group
-states. This makes it safer to operate in environments that require out-of-order
-processing of commits.
+discouraged, because it compromises the protocol's forward secrecy. As such,
+clients can't process out-of-order commits, because the group state is deleted
+after the first commit is applied.
+
+DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) is a variant of
+MLS that achieves fork resilience as introduced by Alwen et al.
+(https://eprint.iacr.org/2023/394), which significantly improves forward secrecy
+when retaining a group state after applying a commit.
+
+The main difference between MLS and DeMLS is how the `init_secret` is derived in
+the key schedule. Instead of a regular KDF, DeMLS uses a puncturable
+pseudorandom function (PPRF), which prevents the client from deriving the same
+`init_secret` twice, thus achieving forward secrecy for each specific commit.
 
 ### Overhead
-For DeMLS, performance considerations are largely the same as in regular MLS,
-including its characteristic logarithmic performance overhead.
-
-The main additional overhead of DeMLS is the storage overhead due to its changes
-to MLS key schedule. Here, whenever a commit is processed, additional key
-material on the order of 13kB needs to be stored by the client as long as it
-needs to be able to process other commits for the epoch of that group state.
+As DeMLS is largely the same as MLS, it retains its performance characteristics
+with the exception of local storage. Here, the PPRF used by DeMLS incurs a local
+storage overhead on the order of 10 kB (depending slightly on the PPRF
+implementation) per commit processed (if the old group state is retained). The
+only other place where DeMLS differs from MLS is that an extra 32B epoch
+identifier needs to be attached to every message to identify the exact group
+state required to process the message.
 
 ### DS
-DeMLS benefits from a DS that can inform clients when a fork can occur. For
-example, in federated environments, individual servers can detect when they lose
-connectivity with other parts of the network and inform clients that they may
-need to process multiple commits for the current epoch. Similarly, the server
-can inform its clients when a given netsplit is over and old group states can be
-deleted.
+Its fork resilience makes DeMLS generally suitable for use in environments where
+the DS can't prevent the ocurrence of out-of-order commits.
+
+However, due to the overhead associated with commit processing, DeMLS benefits
+from a DS that can inform clients when out-of-order processing may be necessary.
+
+For example, in federated environments, individual servers can detect when they
+lose connectivity with other parts of the network and inform clients that they
+may need to process multiple commits for the current epoch. Similarly, the
+server can inform its clients when a given netsplit is over and old group states
+can be deleted.
 
 ### Resiliency
 DeMLS makes it safer to maintain multiple forks of a group at the added cost of
