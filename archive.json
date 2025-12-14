@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-12-11T00:50:08.531567+00:00",
+  "timestamp": "2025-12-14T00:53:46.839103+00:00",
   "repo": "germ-mark/mls-informational-decentralized-applications",
   "labels": [
     {
@@ -56,24 +56,26 @@
       "id": "PR_kwDOQPX-PM632oCV",
       "title": "add more detailed info on DeMLS",
       "url": "https://github.com/germ-mark/mls-informational-decentralized-applications/pull/1",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "kkohbrok",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-12-09T07:47:44Z",
-      "updatedAt": "2025-12-09T07:47:44Z",
+      "updatedAt": "2025-12-12T01:00:50Z",
       "baseRepository": "germ-mark/mls-informational-decentralized-applications",
       "baseRefName": "main",
       "baseRefOid": "dc2d079ff1f15de3d690b688a64cc03614ae5dc1",
       "headRepository": "kkohbrok/mls-informational-decentralized-applications",
       "headRefName": "konrad/demls_details",
       "headRefOid": "79d588baf6f684dc1a63656b10548cf687af1c61",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-12-12T01:00:50Z",
+      "mergedAt": "2025-12-12T01:00:50Z",
+      "mergedBy": "germ-mark",
+      "mergeCommit": {
+        "oid": "8edf2fb27bf03149fbfb2fe062b989ee03af1c17"
+      },
       "comments": [],
       "reviews": []
     }
