@@ -3,7 +3,7 @@ title: "Distributed and Decentralized Uses of MLS"
 abbrev: "DDMLS"
 category: info
 
-docname: draft-xue-mls-decentralized
+docname: draft-xue-mls-decentralized-latest
 submissiontype: IETF 
 number:
 date:
