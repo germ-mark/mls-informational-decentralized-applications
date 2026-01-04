@@ -1,40 +1,18 @@
 ---
-###
-# Internet-Draft Markdown Template
-#
-# Rename this file from draft-todo-yourname-protocol.md to get started.
-# Draft name format is "draft-<yourname>-<workgroup>-<name>.md".
-#
-# For initial setup, you only need to edit the first block of fields.
-# Only "title" needs to be changed; delete "abbrev" if your title is short.
-# Any other content can be edited, but be careful not to introduce errors.
-# Some fields will be set automatically during setup if they are unchanged.
-#
-# Don't include "-00" or "-latest" in the filename.
-# Labels in the form draft-<yourname>-<workgroup>-<name>-latest are used by
-# the tools to refer to the current version; see "docname" for example.
-#
-# This template uses kramdown-rfc: https://github.com/cabo/kramdown-rfc
-# You can replace the entire file if you prefer a different format.
-# Change the file extension to match the format (.xml for XML, etc...)
-#
-###
 title: "Distributed and Decentralized Uses of MLS"
 abbrev: "DDMLS"
 category: info
 
-docname: draft-todo-yourname-protocol-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+docname: draft-xue-mls-decentralized
+submissiontype: IETF 
 number:
 date:
 consensus: true
-v: 3
+v: 1
 area: SEC
 workgroup: MLS
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - decentralized mls
 venue:
   group: WG
   type: Working Group
@@ -45,12 +23,16 @@ venue:
 
 author:
  -
+    fullname: Mark Xue
+    organization: Germ Network
+    email:
+    
     fullname: Britta Hale 
     organization: Naval Postgraduate School
     email: britta.hale@nps.edu
 
-    fullname: 
-    organization: 
+    fullname: Konrad Kohbrok
+    organization: Phoenix R&D
     email:
 
 normative:
