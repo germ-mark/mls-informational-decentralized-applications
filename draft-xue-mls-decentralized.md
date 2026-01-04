@@ -97,12 +97,12 @@ MLS offers logarthimic overhead for groups.
 
 Additional overhead from the DS must also be accounted for.
 
-### DS
-The centralized case is straightforward in MLS. For decentralized use cases
-and distributed use cases, care must be taken to identify a suitable DS to
-ensure that there is group consensus on commit ordering. As a use case
-increases in complexity to the decentralized setting and thence to the
-distributed setting, DS design decisions have increasing implications on
+### Delivery Service
+The centralized case is straightforward in MLS. For decentralized use cases 
+and distributed use cases, care must be taken to identify a suitable DS to 
+ensure that there is group consensus on commit ordering. As a use case 
+increases in complexity to the decentralized setting and thence to the 
+distributed setting, DS design decisions have increasing implications on 
 overhead and potentially also security.
 
 In a decentralized setting, one example solution is to assign one server
@@ -158,7 +158,7 @@ only other place where DeMLS differs from MLS is that an extra 32B epoch
 identifier needs to be attached to every message to identify the exact group
 state required to process the message.
 
-### DS
+### Delivery Service
 Its fork resilience makes DeMLS generally suitable for use in environments where
 the DS can't prevent the ocurrence of out-of-order commits.
 
@@ -187,10 +187,10 @@ consensus on commit ordering is not required for the DS unlike in MLS. Thus
 the trade-off in DiMLS is among overhead incurred by the security protocol
 itself and its architectural requirements in DS overhead.
 
-### DS
-In DiMLS there are fewer requirements on the DS for exact ordering. Messages
-must get to the respective destinations but in-order delivery is not expected
-for security purposes of maintaining a consistent state.
+### Delivery Service  
+In DiMLS there are fewer requirements on the DS for exact ordering. Messages 
+must get to the respective destinations but in-order delivery is not expected 
+for security purposes of maintaining a consistent state. 
 
 ### Resiliency
 DeMLS is highly resilient to out-of-order commits and, in the case of honest
@@ -228,8 +228,3 @@ This document has no IANA actions.
 
 
 --- back
-
-# Acknowledgments
-{:numbered="false"}
-
-TODO acknowledge.
