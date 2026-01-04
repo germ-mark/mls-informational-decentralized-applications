@@ -2,14 +2,14 @@
 
 
 
-MLS                                                           Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                           5 November 2025
-Expires: 9 May 2026
+MLS                                                           K. Kohbrok
+Internet-Draft                                               Phoenix R&D
+Intended status: Informational                            4 January 2026
+Expires: 8 July 2026
 
 
                Distributed and Decentralized Uses of MLS
-                  draft-todo-yourname-protocol-latest
+                      draft-xue-mls-decentralized
 
 Abstract
 
@@ -31,8 +31,7 @@ About This Document
 
    The latest revision of this draft can be found at
    https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   be found at https://datatracker.ietf.org/doc/draft-xue-mls/.
 
    Discussion of this document takes place on the WG Working Group
    mailing list (mailto:WG@example.com), which is archived at
@@ -56,11 +55,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 May 2026.
+   This Internet-Draft will expire on 8 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -81,7 +80,7 @@ Table of Contents
        3.1.1.  Overhead
        3.1.2.  DS
        3.1.3.  Resiliency
-     3.2.  DeMLS (Konrad)
+     3.2.  DeMLS
        3.2.1.  Overhead
        3.2.2.  DS
        3.2.3.  Resiliency
@@ -176,26 +175,58 @@ Table of Contents
    correct sequence.  Out-of-order commits can lead to forks in the
    group state.
 
-3.2.  DeMLS (Konrad)
+3.2.  DeMLS
 
-   DeMLS is defined in....
+   In MLS, retention of a group state after applying a commit is
+   strongly discouraged, because it compromises the protocol's forward
+   secrecy.  As such, clients can't process out-of-order commits,
+   because the group state is deleted after the first commit is applied.
+
+   DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) is a
+   variant of MLS that achieves fork resilience as introduced by Alwen
+   et al. (https://eprint.iacr.org/2023/394), which significantly
+   improves forward secrecy when retaining a group state after applying
+   a commit.
+
+   The main difference between MLS and DeMLS is how the init_secret is
+   derived in the key schedule.  Instead of a regular KDF, DeMLS uses a
+   puncturable pseudorandom function (PPRF), which prevents the client
+   from deriving the same init_secret twice, thus achieving forward
+   secrecy for each specific commit.
 
 3.2.1.  Overhead
 
-   DeMLS maintains the logarithmic overhead of updates in MLS.  DS
-   overhead must also be accounted for as in MLS for various topologies,
-   but imposes slightly less ordering strictness than in MLS, as the
-   mechanism enables out-of-order commit processing.  As a trade-off,
-   DeMLS requires more storage on the end device.  The additional
-   storage requirements are generally correlated to ordering strictness;
-   the less delay or out of order commits occur, the less state and
-   storage expansion is required.
+   As DeMLS is largely the same as MLS, it retains its performance
+   characteristics with the exception of local storage.  Here, the PPRF
+   used by DeMLS incurs a local storage overhead on the order of 10 kB
+   (depending slightly on the PPRF implementation) per commit processed
+   (if the old group state is retained).  The only other place where
+   DeMLS differs from MLS is that an extra 32B epoch identifier needs to
+   be attached to every message to identify the exact group state
+   required to process the message.
 
 3.2.2.  DS
 
+   Its fork resilience makes DeMLS generally suitable for use in
+   environments where the DS can't prevent the ocurrence of out-of-order
+   commits.
+
+   However, due to the overhead associated with commit processing, DeMLS
+   benefits from a DS that can inform clients when out-of-order
+   processing may be necessary.
+
+   For example, in federated environments, individual servers can detect
+   when they lose connectivity with other parts of the network and
+   inform clients that they may need to process multiple commits for the
+   current epoch.  Similarly, the server can inform its clients when a
+   given netsplit is over and old group states can be deleted.
+
 3.2.3.  Resiliency
 
-   DeMLS provides fork resilience and a cost to memory.
+   DeMLS makes it safer to maintain multiple forks of a group at the
+   added cost of storage, as well as a slight complexity increase in
+   MLS's key schedule.  This makes the use of MLS viable in environments
+   where forks may occur due to out-of-order commits.
 
 3.3.  DiMLS (Mark)
 
@@ -257,6 +288,5 @@ Acknowledgments
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Konrad Kohbrok
+   Phoenix R&D

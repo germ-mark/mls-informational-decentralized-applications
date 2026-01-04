@@ -5,7 +5,7 @@
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
 <title>Distributed and Decentralized Uses of MLS</title>
-<meta content="Your Name Here" name="author">
+<meta content="Konrad Kohbrok" name="author">
 <meta content="
        The Messaging Layer Security (MLS) protocol provides continuous key agreement, 
 and offers additional benefits in multi-device, a.k.a. group use cases. MLS 
@@ -18,25 +18,23 @@ and extensions across various topologies and provides guidance on selection
 among alternatives under both functionality and security considerations. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
-<meta content="next generation" name="keyword">
-<meta content="unicorn" name="keyword">
-<meta content="sparkling distributed ledger" name="keyword">
-<meta content="draft-todo-yourname-protocol-latest" name="ietf.draft">
+<meta content="decentralized mls" name="keyword">
+<meta content="draft-xue-mls-decentralized" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.31.0
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.5.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
     wcwidth 0.2.14
 -->
-<link href="draft-todo-yourname-protocol.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-xue-mls-decentralized.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1053,11 +1051,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DDMLS</td>
-<td class="right">November 2025</td>
+<td class="right">January 2026</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Here</td>
-<td class="center">Expires 9 May 2026</td>
+<td class="left">Kohbrok</td>
+<td class="center">Expires 8 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1067,20 +1065,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">MLS</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-todo-yourname-protocol-latest</dd>
+<dd class="internet-draft">draft-xue-mls-decentralized</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-11-05" class="published">5 November 2025</time>
+<time datetime="2026-01-04" class="published">4 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-05-09">9 May 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-08">8 July 2026</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">Y. N. Here</div>
-<div class="org">Your Organization Here</div>
+      <div class="author-name">K. Kohbrok</div>
+<div class="org">Phoenix R&amp;D</div>
 </div>
 </dd>
 </dl>
@@ -1105,7 +1103,7 @@ among alternatives under both functionality and security considerations.<a href=
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
         The latest revision of this draft can be found at <span><a href="https://example.com/LATEST">https://example.com/LATEST</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/">https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-xue-mls/">https://datatracker.ietf.org/doc/draft-xue-mls/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
         WG Working Group mailing list (<span><a href="mailto:WG@example.com">mailto:WG@example.com</a></span>),
@@ -1132,7 +1130,7 @@ among alternatives under both functionality and security considerations.<a href=
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1141,7 +1139,7 @@ among alternatives under both functionality and security considerations.<a href=
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1185,7 +1183,7 @@ among alternatives under both functionality and security considerations.<a href=
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-demls-konrad" class="internal xref">DeMLS (Konrad)</a></p>
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-demls" class="internal xref">DeMLS</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2.2.1">
                     <p id="section-toc.1-1.3.2.2.2.1.1"><a href="#section-3.2.1" class="auto internal xref">3.2.1</a>.  <a href="#name-overhead-2" class="internal xref">Overhead</a></p>
@@ -1333,32 +1331,51 @@ sequence. Out-of-order commits can lead to forks in the group state.<a href="#se
 </div>
 </section>
 </div>
-<div id="demls-konrad">
+<div id="demls">
 <section id="section-3.2">
-        <h3 id="name-demls-konrad">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-demls-konrad" class="section-name selfRef">DeMLS (Konrad)</a>
+        <h3 id="name-demls">
+<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-demls" class="section-name selfRef">DeMLS</a>
         </h3>
-<p id="section-3.2-1">DeMLS is defined in....<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">In MLS, retention of a group state after applying a commit is strongly
+discouraged, because it compromises the protocol's forward secrecy. As such,
+clients can't process out-of-order commits, because the group state is deleted
+after the first commit is applied.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-2">DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) is a variant of
+MLS that achieves fork resilience as introduced by Alwen et al.
+(https://eprint.iacr.org/2023/394), which significantly improves forward secrecy
+when retaining a group state after applying a commit.<a href="#section-3.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2-3">The main difference between MLS and DeMLS is how the <code>init_secret</code> is derived in
+the key schedule. Instead of a regular KDF, DeMLS uses a puncturable
+pseudorandom function (PPRF), which prevents the client from deriving the same
+<code>init_secret</code> twice, thus achieving forward secrecy for each specific commit.<a href="#section-3.2-3" class="pilcrow">¶</a></p>
 <div id="overhead-1">
 <section id="section-3.2.1">
           <h4 id="name-overhead-2">
 <a href="#section-3.2.1" class="section-number selfRef">3.2.1. </a><a href="#name-overhead-2" class="section-name selfRef">Overhead</a>
           </h4>
-<p id="section-3.2.1-1">DeMLS maintains the logarithmic overhead of updates in MLS. 
-DS overhead must also be accounted for as in MLS for various topologies, 
-but imposes slightly less ordering strictness than in MLS, as the mechanism 
-enables out-of-order commit processing. 
-As a trade-off, DeMLS requires more storage on the end device. The additional 
-storage requirements are generally correlated to ordering strictness; the less 
-delay or out of order commits occur, the less state and storage expansion is 
-required.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.1-1">As DeMLS is largely the same as MLS, it retains its performance characteristics
+with the exception of local storage. Here, the PPRF used by DeMLS incurs a local
+storage overhead on the order of 10 kB (depending slightly on the PPRF
+implementation) per commit processed (if the old group state is retained). The
+only other place where DeMLS differs from MLS is that an extra 32B epoch
+identifier needs to be attached to every message to identify the exact group
+state required to process the message.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="ds-1">
 <section id="section-3.2.2">
           <h4 id="name-ds-2">
 <a href="#section-3.2.2" class="section-number selfRef">3.2.2. </a><a href="#name-ds-2" class="section-name selfRef">DS</a>
-        </h4>
+          </h4>
+<p id="section-3.2.2-1">Its fork resilience makes DeMLS generally suitable for use in environments where
+the DS can't prevent the ocurrence of out-of-order commits.<a href="#section-3.2.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-2">However, due to the overhead associated with commit processing, DeMLS benefits
+from a DS that can inform clients when out-of-order processing may be necessary.<a href="#section-3.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-3.2.2-3">For example, in federated environments, individual servers can detect when they
+lose connectivity with other parts of the network and inform clients that they
+may need to process multiple commits for the current epoch. Similarly, the
+server can inform its clients when a given netsplit is over and old group states
+can be deleted.<a href="#section-3.2.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="resiliency-1">
@@ -1366,7 +1383,10 @@ required.<a href="#section-3.2.1-1" class="pilcrow">¶</a></p>
           <h4 id="name-resiliency-2">
 <a href="#section-3.2.3" class="section-number selfRef">3.2.3. </a><a href="#name-resiliency-2" class="section-name selfRef">Resiliency</a>
           </h4>
-<p id="section-3.2.3-1">DeMLS provides fork resilience and a cost to memory.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.2.3-1">DeMLS makes it safer to maintain multiple forks of a group at the added cost of
+storage, as well as a slight complexity increase in MLS's key schedule. This
+makes the use of MLS viable in environments where forks may occur due to
+out-of-order commits.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1464,12 +1484,8 @@ focuses on the issue of state forking in such use cases.<a href="#section-5-1" c
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Your Name Here</span></div>
-<div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
-</div>
+        <div dir="auto" class="left"><span class="fn nameRole">Konrad Kohbrok</span></div>
+<div dir="auto" class="left"><span class="org">Phoenix R&amp;D</span></div>
 </address>
 </section>
 </div>
