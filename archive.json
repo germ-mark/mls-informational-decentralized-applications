@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-04T00:56:39.339559+00:00",
+  "timestamp": "2026-01-06T00:51:22.204232+00:00",
   "repo": "germ-mark/mls-informational-decentralized-applications",
   "labels": [
     {
@@ -49,7 +49,24 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 3,
+      "id": "I_kwDOQPX-PM7hSOaa",
+      "title": "Finish high level descriptions",
+      "url": "https://github.com/germ-mark/mls-informational-decentralized-applications/issues/3",
+      "state": "OPEN",
+      "author": "br-hale",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-01-04T21:13:08Z",
+      "updatedAt": "2026-01-04T21:13:08Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -75,6 +92,34 @@
       "mergedBy": "germ-mark",
       "mergeCommit": {
         "oid": "8edf2fb27bf03149fbfb2fe062b989ee03af1c17"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOQPX-PM67cPMS",
+      "title": "Update draft-xue-mls-decentralized.md",
+      "url": "https://github.com/germ-mark/mls-informational-decentralized-applications/pull/2",
+      "state": "MERGED",
+      "author": "br-hale",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-01-04T21:09:08Z",
+      "updatedAt": "2026-01-04T21:12:49Z",
+      "baseRepository": "germ-mark/mls-informational-decentralized-applications",
+      "baseRefName": "main",
+      "baseRefOid": "fe72ec96c033e96247b47b43f65969236c267428",
+      "headRepository": "germ-mark/mls-informational-decentralized-applications",
+      "headRefName": "br-hale-patch-1",
+      "headRefOid": "40bbaeff40c46028125a4ec9b6a246498e814b6d",
+      "closedAt": "2026-01-04T21:12:37Z",
+      "mergedAt": "2026-01-04T21:12:37Z",
+      "mergedBy": "br-hale",
+      "mergeCommit": {
+        "oid": "cd0d70584693552aae78d5934b35ee32f3d3f0ac"
       },
       "comments": [],
       "reviews": []
