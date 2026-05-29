@@ -98,11 +98,11 @@ MLS offers logarthimic overhead for groups.
 Additional overhead from the DS must also be accounted for.
 
 ### Delivery Service
-The centralized case is straightforward in MLS. For decentralized use cases 
-and distributed use cases, care must be taken to identify a suitable DS to 
-ensure that there is group consensus on commit ordering. As a use case 
-increases in complexity to the decentralized setting and thence to the 
-distributed setting, DS design decisions have increasing implications on 
+The centralized case is straightforward in MLS. For decentralized use cases
+and distributed use cases, care must be taken to identify a suitable DS to
+ensure that there is group consensus on commit ordering. As a use case
+increases in complexity to the decentralized setting and thence to the
+distributed setting, DS design decisions have increasing implications on
 overhead and potentially also security.
 
 In a decentralized setting, one example solution is to assign one server
@@ -187,10 +187,10 @@ consensus on commit ordering is not required for the DS unlike in MLS. Thus
 the trade-off in DiMLS is among overhead incurred by the security protocol
 itself and its architectural requirements in DS overhead.
 
-### Delivery Service  
-In DiMLS there are fewer requirements on the DS for exact ordering. Messages 
-must get to the respective destinations but in-order delivery is not expected 
-for security purposes of maintaining a consistent state. 
+### Delivery Service
+In DiMLS there are fewer requirements on the DS for exact ordering. Messages
+must get to the respective destinations but in-order delivery is not expected
+for security purposes of maintaining a consistent state.
 
 ### Resiliency
 DeMLS is highly resilient to out-of-order commits and, in the case of honest
