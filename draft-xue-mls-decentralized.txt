@@ -2,14 +2,17 @@
 
 
 
-MLS                                                           K. Kohbrok
-Internet-Draft                                               Phoenix R&D
-Intended status: Informational                            4 January 2026
-Expires: 8 July 2026
+Messaging Layer Security                                          M. Xue
+Internet-Draft                                        Germ Network, Inc.
+Intended status: Informational                                   B. Hale
+Expires: 30 November 2026                      Naval Postgraduate School
+                                                              K. Kohbrok
+                                                             Phoenix R&D
+                                                             29 May 2026
 
 
                Distributed and Decentralized Uses of MLS
-                      draft-xue-mls-decentralized
+                   draft-xue-mls-decentralized-latest
 
 Abstract
 
@@ -29,16 +32,20 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-xue-mls/.
+   The latest revision of this draft can be found at https://germ-
+   mark.github.io/mls-informational-decentralized-applications/draft-
+   xue-mls-decentralized.html.  Status information for this document may
+   be found at https://datatracker.ietf.org/doc/draft-xue-mls-
+   decentralized/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   Discussion of this document takes place on the Messaging Layer
+   Security Working Group mailing list (mailto:mls@ietf.org), which is
+   archived at https://mailarchive.ietf.org/arch/browse/mls/.  Subscribe
+   at https://www.ietf.org/mailman/listinfo/mls/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/germ-mark/mls-informational-decentralized-
+   applications.
 
 Status of This Memo
 
@@ -55,7 +62,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 July 2026.
+   This Internet-Draft will expire on 30 November 2026.
 
 Copyright Notice
 
@@ -78,21 +85,20 @@ Table of Contents
    3.  Trade-off Considerations
      3.1.  MLS
        3.1.1.  Overhead
-       3.1.2.  DS
+       3.1.2.  Delivery Service
        3.1.3.  Resiliency
      3.2.  DeMLS
        3.2.1.  Overhead
-       3.2.2.  DS
+       3.2.2.  Delivery Service
        3.2.3.  Resiliency
-     3.3.  DiMLS (Mark)
+     3.3.  DiMLS
        3.3.1.  Overhead
-       3.3.2.  DS
+       3.3.2.  Delivery Service
        3.3.3.  Resiliency
    4.  Use Cases
    5.  Security Considerations
    6.  IANA Considerations
-   Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -119,10 +125,10 @@ Table of Contents
    An entity may also be a member.  Decentralized: A decentralized
    network relies on federation of servers or select entites performing
    the responsibilities of a DS.  For example, assigned members may
-   coordinate DS responsibilites among themselves.
-   Distributed: A distributed network relies on many entities performing
-   the responsibilities of a DS.  This may include cases of many members
-   or even all members participating in DS responsibilities, such as in
+   coordinate DS responsibilites among themselves.  Distributed: A
+   distributed network relies on many entities performing the
+   responsibilities of a DS.  This may include cases of many members or
+   even all members participating in DS responsibilities, such as in
    mesh networks.
 
 3.  Trade-off Considerations
@@ -137,7 +143,7 @@ Table of Contents
 
    Additional overhead from the DS must also be accounted for.
 
-3.1.2.  DS
+3.1.2.  Delivery Service
 
    The centralized case is straightforward in MLS.  For decentralized
    use cases and distributed use cases, care must be taken to identify a
@@ -205,7 +211,7 @@ Table of Contents
    be attached to every message to identify the exact group state
    required to process the message.
 
-3.2.2.  DS
+3.2.2.  Delivery Service
 
    Its fork resilience makes DeMLS generally suitable for use in
    environments where the DS can't prevent the ocurrence of out-of-order
@@ -228,9 +234,17 @@ Table of Contents
    MLS's key schedule.  This makes the use of MLS viable in environments
    where forks may occur due to out-of-order commits.
 
-3.3.  DiMLS (Mark)
+3.3.  DiMLS
 
-   DiMLS is defined in....
+   DiMLS is defined in draft-xue-distributed-mls-02
+   (https://datatracker.ietf.org/doc/draft-xue-distributed-mls/)
+
+   DiMLS accomodates concurrent actions by * defining a subset of group
+   operations that are commutative and can be applied ou of order *
+   using MLS groups as a primitive to represent each local snapshot of
+   the total group state * advancing group state by distributing commits
+   to the sender's local state * maintaining causal dependency across
+   MLS groups by exporting shared secrets and importing them as PSK's.
 
 3.3.1.  Overhead
 
@@ -241,11 +255,11 @@ Table of Contents
    among overhead incurred by the security protocol itself and its
    architectural requirements in DS overhead.
 
-3.3.2.  DS
+3.3.2.  Delivery Service
 
    In DiMLS there are fewer requirements on the DS for exact ordering.
-   Messages must get to the respective destinations but in-order
-   delivery is not expected for security purposes of maintaining a
+   Members must eventually receive each commit from each other member,
+   but delivery does not need to be ordered for members to maintain
    consistent state.
 
 3.3.3.  Resiliency
@@ -282,11 +296,17 @@ Table of Contents
 
    This document has no IANA actions.
 
-Acknowledgments
+Authors' Addresses
 
-   TODO acknowledge.
+   Mark Xue
+   Germ Network, Inc.
+   Email: mark@germ.network
 
-Author's Address
+
+   Britta Hale
+   Naval Postgraduate School
+   Email: britta.hale@nps.edu
+
 
    Konrad Kohbrok
    Phoenix R&D
