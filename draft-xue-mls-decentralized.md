@@ -24,13 +24,13 @@ venue:
 author:
  -
     fullname: Mark Xue
-    organization: Germ Network
-    email:
-
+    organization: Germ Network, Inc.
+    email: "mark@germ.network"
+ -
     fullname: Britta Hale
     organization: Naval Postgraduate School
-    email: britta.hale@nps.edu
-
+    email: "britta.hale@nps.edu"
+ -
     fullname: Konrad Kohbrok
     organization: Phoenix R&D
     email:
