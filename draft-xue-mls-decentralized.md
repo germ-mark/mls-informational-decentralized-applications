@@ -36,16 +36,25 @@ author:
     email:
 
 normative:
+  RFC9420:
 
 informative:
+  FRCGKA:
+    target: https://eprint.iacr.org/2023/394.pdf
+    title: "Fork-Resilient Continuous Group Key Agreement"
+    date: 2024-02-22
+    author:
+      - name: Joel Alwen
+      - name: Marta Mularczyk
+      - name: Yiannis Tselekounis
 
 ...
 
 --- abstract
 
-The Messaging Layer Security (MLS) protocol provides continuous key agreement,
-and offers additional benefits in multi-device, a.k.a. group use cases. MLS
-is reliant on a Delivery Service (DS) for message ordering. In highly
+The Messaging Layer Security (MLS) protocol provides continuous key agreement
+and offers additional benefits in multi-device group use cases. MLS relies
+on a Delivery Service (DS) for message ordering. In highly
 centralized uses, where the DS is a single server, configuration is
 straightforward. However, MLS also lends itself to use cases that are
 decentralized (e.g., federated networks) and even distributed (e.g., mesh
@@ -57,29 +66,27 @@ among alternatives under both functionality and security considerations.
 
 # Introduction
 
-While the Messaging Layer Security (MLS) protocol had initial uses in the
-construct of simple secure messaging deployments, developments on use cases
-have extended into decentralized and distributed environments. This includes
-decentralized uses such as federation, under the MIMI working group [cite]
-and distributed uses such as across mesh networks. In such cases,
-identification of an adequate delivery service (DS) to fit various topologies
-and ensure precise commit ordering can be difficult, and the DS can incur
-significant overhead in itself. This has driven consideration of how to
-account for potential forking of the group state [cite] for re-ordered commit
-messages or avoid the risk of out-of-order commits altogether [cite]. This
-informational document provides an outline of uses of MLS and its extensions
-across various network topology considerations, with specific considerations
-to network overhead, storage, and security from state forking.
-
+The Messaging Layer Security (MLS) protocol is typically used in scenarios where
+a Delivery Service (DS) layer ensures that clients eventually agree on the order
+in which commits are applied. However, MLS is increasingly used in decentralized
+and distributed environments such as mesh networks. In such cases,
+implementation of an adequate DS that ensures agreement on commit ordering can
+be difficult, for example, because it incurs a significant overhead. This has
+driven consideration of how to account for potential forking of the group state
+{{?I-D.kohbrok-mls-dmls}} for reordered commit messages or avoid the risk of
+out-of-order commits altogether {{?I-D.xue-distributed-mls}}. This informational
+document provides an outline of uses of MLS and its extensions across various
+network topology considerations, with specific considerations to network
+overhead, storage, and security from state forking.
 
 # Definitions
 
 Members:       Protocol participants.
 Centralized:   A centralized network has a single server or entity perform
-               the responsibilites of a DS. An entity may also be a member.
+               the responsibilities of a DS. An entity may also be a member.
 Decentralized: A decentralized network relies on federation of servers or
-               select entites performing the responsibilities of a DS. For
-               example, assigned members may coordinate DS responsibilites
+               select entities performing the responsibilities of a DS. For
+               example, assigned members may coordinate DS responsibilities
                among themselves.
 Distributed:   A distributed network relies on many entities performing
                the responsibilities of a DS. This may include cases of
@@ -90,10 +97,10 @@ Distributed:   A distributed network relies on many entities performing
 # Trade-off Considerations
 
 ## MLS
-The MLS protocol is defined in [RFC9420].
+The MLS protocol is defined in {{!RFC9420}}.
 
 ### Overhead
-MLS offers logarthimic overhead for groups.
+MLS offers logarithmic overhead for groups.
 
 Additional overhead from the DS must also be accounted for.
 
@@ -101,15 +108,15 @@ Additional overhead from the DS must also be accounted for.
 The centralized case is straightforward in MLS. For decentralized use cases
 and distributed use cases, care must be taken to identify a suitable DS to
 ensure that there is group consensus on commit ordering. As a use case
-increases in complexity to the decentralized setting and thence to the
-distributed setting, DS design decisions have increasing implications on
-overhead and potentially also security.
+increases in complexity from the decentralized setting to the distributed
+setting, DS design decisions have increasing implications on overhead and
+potentially also security.
 
 In a decentralized setting, one example solution is to assign one server
 (among a set of federated servers) as the decision holder for such ordering,
 thereby creating a pseudo-centralized environment out of a decentralized
 environment. In a distributed use case, the challenge increases. Similar
-temporary role assignment to members, where in one is dedicated as a the
+temporary role assignment to members, where one member is dedicated as the
 "lead" entity for deciding commit ordering may be possible in well-connected
 use cases.
 
@@ -121,11 +128,11 @@ accounted for.
 
 Yet a further approach is that of using a consensus algorithm to reach
 agreement on commit ordering. This offloads overhead to the DS as such
-consensus algorithms can vary wideline in incurred overhead and delay for
+consensus algorithms can vary widely in overhead and delay incurred for
 processing, especially if a member is unreachable.
 
 Thus maintaining consensus on commit ordering tends to incur increasing DS
-overhead has network topology spreads.
+overhead as network topologies become more distributed.
 
 ### Resiliency
 
@@ -136,13 +143,12 @@ sequence. Out-of-order commits can lead to forks in the group state.
 ## DeMLS
 In MLS, retention of a group state after applying a commit is strongly
 discouraged, because it compromises the protocol's forward secrecy. As such,
-clients can't process out-of-order commits, because the group state is deleted
+clients cannot process out-of-order commits, because the group state is deleted
 after the first commit is applied.
 
-DeMLS (https://datatracker.ietf.org/doc/draft-kohbrok-mls-dmls/) is a variant of
-MLS that achieves fork resilience as introduced by Alwen et al.
-(https://eprint.iacr.org/2023/394), which significantly improves forward secrecy
-when retaining a group state after applying a commit.
+DeMLS {{?I-D.kohbrok-mls-dmls}} is a variant of MLS that achieves fork
+resilience as introduced by Alwen et al. {{FRCGKA}}, which significantly
+improves forward secrecy when retaining a group state after applying a commit.
 
 The main difference between MLS and DeMLS is how the `init_secret` is derived in
 the key schedule. Instead of a regular KDF, DeMLS uses a puncturable
@@ -154,13 +160,13 @@ As DeMLS is largely the same as MLS, it retains its performance characteristics
 with the exception of local storage. Here, the PPRF used by DeMLS incurs a local
 storage overhead on the order of 10 kB (depending slightly on the PPRF
 implementation) per commit processed (if the old group state is retained). The
-only other place where DeMLS differs from MLS is that an extra 32B epoch
+only other place where DeMLS differs from MLS is that an extra 32-byte epoch
 identifier needs to be attached to every message to identify the exact group
 state required to process the message.
 
 ### Delivery Service
 Its fork resilience makes DeMLS generally suitable for use in environments where
-the DS can't prevent the ocurrence of out-of-order commits.
+the DS cannot prevent the occurrence of out-of-order commits.
 
 However, due to the overhead associated with commit processing, DeMLS benefits
 from a DS that can inform clients when out-of-order processing may be necessary.
@@ -178,8 +184,7 @@ makes the use of MLS viable in environments where forks may occur due to
 out-of-order commits.
 
 ## DiMLS
-DiMLS is defined in draft-xue-distributed-mls-02
-(https://datatracker.ietf.org/doc/draft-xue-distributed-mls/)
+DiMLS is defined in {{?I-D.xue-distributed-mls}}.
 
 DiMLS accomodates concurrent actions by
 * defining a subset of group operations that are commutative and can be applied
