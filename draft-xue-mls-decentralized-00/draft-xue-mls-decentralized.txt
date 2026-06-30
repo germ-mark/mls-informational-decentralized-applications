@@ -5,10 +5,10 @@
 Messaging Layer Security                                          M. Xue
 Internet-Draft                                        Germ Network, Inc.
 Intended status: Informational                                   B. Hale
-Expires: 28 December 2026                      Naval Postgraduate School
+Expires: 1 January 2027                        Naval Postgraduate School
                                                               K. Kohbrok
                                                              Phoenix R&D
-                                                            26 June 2026
+                                                            30 June 2026
 
 
                Distributed and Decentralized Uses of MLS
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 28 December 2026.
+   This Internet-Draft will expire on 1 January 2027.
 
 Copyright Notice
 
@@ -338,3 +338,4 @@ Authors' Addresses
 
    Konrad Kohbrok
    Phoenix R&D
+   Email: konrad@ratchet.ing
