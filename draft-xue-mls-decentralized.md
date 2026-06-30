@@ -33,7 +33,7 @@ author:
  -
     fullname: Konrad Kohbrok
     organization: Phoenix R&D
-    email:
+    email: "konrad@ratchet.ing"
 
 normative:
   RFC9420:
