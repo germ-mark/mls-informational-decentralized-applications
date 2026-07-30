@@ -81,17 +81,28 @@ overhead, storage, and security from state forking.
 
 # Definitions
 
-Members:       Protocol participants.
-Centralized:   A centralized network has a single server or entity perform
-               the responsibilities of a DS. An entity may also be a member.
-Decentralized: A decentralized network relies on federation of servers or
-               select entities performing the responsibilities of a DS. For
-               example, assigned members may coordinate DS responsibilities
-               among themselves.
-Distributed:   A distributed network relies on many entities performing
-               the responsibilities of a DS. This may include cases of
-               many members or even all members participating in DS
-               responsibilities, such as in mesh networks.
+Members:
+
+: Protocol participants.
+
+Centralized:
+
+: A centralized network has a single server or entity perform
+  the responsibilities of a DS. An entity may also be a member.
+
+Decentralized:
+
+: A decentralized network relies on federation of servers or
+  select entities performing the responsibilities of a DS. For
+  example, assigned members may coordinate DS responsibilities
+  among themselves.
+
+Distributed:
+
+: A distributed network relies on many entities performing
+  the responsibilities of a DS. This may include cases of
+  many members or even all members participating in DS
+  responsibilities, such as in mesh networks.
 
 
 # Trade-off Considerations
