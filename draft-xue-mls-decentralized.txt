@@ -5,10 +5,10 @@
 Messaging Layer Security                                          M. Xue
 Internet-Draft                                        Germ Network, Inc.
 Intended status: Informational                                   B. Hale
-Expires: 1 January 2027                        Naval Postgraduate School
+Expires: 5 February 2027                       Naval Postgraduate School
                                                               K. Kohbrok
                                                              Phoenix R&D
-                                                            30 June 2026
+                                                           4 August 2026
 
 
                Distributed and Decentralized Uses of MLS
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 January 2027.
+   This Internet-Draft will expire on 5 February 2027.
 
 Copyright Notice
 
@@ -239,7 +239,7 @@ Table of Contents
    DiMLS is defined in [I-D.xue-distributed-mls].
 
    DiMLS accomodates concurrent actions by * defining a subset of group
-   operations that are commutative and can be applied ou of order *
+   operations that are commutative and can be applied out of order *
    using MLS groups as a primitive to represent each local snapshot of
    the total group state * advancing group state by distributing commits
    to the sender's local state * maintaining causal dependency across
