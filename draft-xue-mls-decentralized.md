@@ -187,11 +187,23 @@ out-of-order commits.
 DiMLS is defined in {{?I-D.xue-distributed-mls}}.
 
 DiMLS accomodates concurrent actions by
+
 * defining a subset of group operations that are commutative and can be applied
 out of order
 * using MLS groups as a primitive to represent each local snapshot of the
 total group state
 * advancing group state by distributing commits to the sender's local state
+* maintaining causal dependency across MLS groups by exporting shared secrets and
+DiMLS accommodates concurrent actions by:
+
+* defining a subset of group operations that are commutative and can be applied
+out of order
+
+* using MLS groups as a primitive to represent each local snapshot of the
+total group state
+
+* advancing group state by distributing commits to the sender's local state
+
 * maintaining causal dependency across MLS groups by exporting shared secrets and
 importing them as PSK's.
 
