@@ -1412,14 +1412,39 @@ out-of-order commits.<a href="#section-3.2.3-1" class="pilcrow">¶</a></p>
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-dimls" class="section-name selfRef">DiMLS</a>
         </h3>
 <p id="section-3.3-1">DiMLS is defined in <span>[<a href="#I-D.xue-distributed-mls" class="cite xref">I-D.xue-distributed-mls</a>]</span>.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
-<p id="section-3.3-2">DiMLS accomodates concurrent actions by
-* defining a subset of group operations that are commutative and can be applied
-out of order
-* using MLS groups as a primitive to represent each local snapshot of the
-total group state
-* advancing group state by distributing commits to the sender's local state
-* maintaining causal dependency across MLS groups by exporting shared secrets and
-importing them as PSK's.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<p id="section-3.3-2">DiMLS accomodates concurrent actions by<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-3.3-3.1">
+            <p id="section-3.3-3.1.1">defining a subset of group operations that are commutative and can be applied
+out of order<a href="#section-3.3-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.2">
+            <p id="section-3.3-3.2.1">using MLS groups as a primitive to represent each local snapshot of the
+total group state<a href="#section-3.3-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.3">
+            <p id="section-3.3-3.3.1">advancing group state by distributing commits to the sender's local state<a href="#section-3.3-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.4">
+            <p id="section-3.3-3.4.1">maintaining causal dependency across MLS groups by exporting shared secrets and
+DiMLS accommodates concurrent actions by:<a href="#section-3.3-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.5">
+            <p id="section-3.3-3.5.1">defining a subset of group operations that are commutative and can be applied
+out of order<a href="#section-3.3-3.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.6">
+            <p id="section-3.3-3.6.1">using MLS groups as a primitive to represent each local snapshot of the
+total group state<a href="#section-3.3-3.6.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.7">
+            <p id="section-3.3-3.7.1">advancing group state by distributing commits to the sender's local state<a href="#section-3.3-3.7.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-3.3-3.8">
+            <p id="section-3.3-3.8.1">maintaining causal dependency across MLS groups by exporting shared secrets and
+importing them as PSK's.<a href="#section-3.3-3.8.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
 <div id="overhead-2">
 <section id="section-3.3.1">
           <h4 id="name-overhead-3">
