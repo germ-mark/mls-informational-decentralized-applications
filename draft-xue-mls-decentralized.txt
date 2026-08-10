@@ -5,10 +5,10 @@
 Messaging Layer Security                                          M. Xue
 Internet-Draft                                        Germ Network, Inc.
 Intended status: Informational                                   B. Hale
-Expires: 5 February 2027                       Naval Postgraduate School
+Expires: 11 February 2027                      Naval Postgraduate School
                                                               K. Kohbrok
                                                              Phoenix R&D
-                                                           4 August 2026
+                                                          10 August 2026
 
 
                Distributed and Decentralized Uses of MLS
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 February 2027.
+   This Internet-Draft will expire on 11 February 2027.
 
 Copyright Notice
 
@@ -121,16 +121,21 @@ Table of Contents
 
 2.  Definitions
 
-   Members: Protocol participants.  Centralized: A centralized network
-   has a single server or entity perform the responsibilities of a DS.
-   An entity may also be a member.  Decentralized: A decentralized
-   network relies on federation of servers or select entities performing
-   the responsibilities of a DS.  For example, assigned members may
-   coordinate DS responsibilities among themselves.  Distributed: A
-   distributed network relies on many entities performing the
-   responsibilities of a DS.  This may include cases of many members or
-   even all members participating in DS responsibilities, such as in
-   mesh networks.
+   Members:  Protocol participants.
+
+   Centralized:  A centralized network has a single server or entity
+      perform the responsibilities of a DS.  An entity may also be a
+      member.
+
+   Decentralized:  A decentralized network relies on federation of
+      servers or select entities performing the responsibilities of a
+      DS.  For example, assigned members may coordinate DS
+      responsibilities among themselves.
+
+   Distributed:  A distributed network relies on many entities
+      performing the responsibilities of a DS.  This may include cases
+      of many members or even all members participating in DS
+      responsibilities, such as in mesh networks.
 
 3.  Trade-off Considerations
 
